@@ -18,6 +18,7 @@ public class Main {
         mentoringOne.setDescription("Get help to create your path in software development!");
         mentoringOne.setDate(LocalDate.of(2023,3,19));
 
+
         System.out.println(courseOne);
         System.out.println(courseTwo);
         System.out.println(mentoringOne);

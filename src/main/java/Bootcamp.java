@@ -1,17 +1,17 @@
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Objects;
+import java.util.Set;
 
 public class Bootcamp {
     private String name;
     private String description;
-    private LocalDate initialDate;
-    private LocalDate endDate;
+    private final LocalDate initialDate = LocalDate.now();
+    private final LocalDate endDate = initialDate.plusDays(45);
+    private Set<Developer> subscribedDevelopers = new HashSet<>();
+    private Set<Content> content = new LinkedHashSet<>();
 
-    public Bootcamp(String name, String description, LocalDate initialDate, LocalDate endDate) {
-        this.name = name;
-        this.description = description;
-        this.initialDate = initialDate;
-        this.endDate = endDate;
-    }
 
     public String getName() {
         return name;
@@ -33,25 +33,48 @@ public class Bootcamp {
         return initialDate;
     }
 
-    public void setInitialDate(LocalDate initialDate) {
-        this.initialDate = initialDate;
-    }
-
     public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
+    public Set<Developer> getSubscribedDevelopers() {
+        return subscribedDevelopers;
+    }
+
+    public void setSubscribedDevelopers(Set<Developer> subscribedDevelopers) {
+        this.subscribedDevelopers = subscribedDevelopers;
+    }
+
+    public Set<Content> getContent() {
+        return content;
+    }
+
+    public void setContent(Set<Content> content) {
+        this.content = content;
     }
 
     @Override
     public String toString() {
         return "Bootcamp{" +
                 "name='" + name + '\'' +
-                ", bootcampDescription='" + description + '\'' +
+                ", description='" + description + '\'' +
                 ", initialDate=" + initialDate +
                 ", endDate=" + endDate +
+                ", subscribedDevelopers=" + subscribedDevelopers +
+                ", content=" + content +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bootcamp bootcamp = (Bootcamp) o;
+        return Objects.equals(name, bootcamp.name) && Objects.equals(description, bootcamp.description) && Objects.equals(initialDate, bootcamp.initialDate) && Objects.equals(endDate, bootcamp.endDate) && Objects.equals(subscribedDevelopers, bootcamp.subscribedDevelopers) && Objects.equals(content, bootcamp.content);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, description, initialDate, endDate, subscribedDevelopers, content);
     }
 }

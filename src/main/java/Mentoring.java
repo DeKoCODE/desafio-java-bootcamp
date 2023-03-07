@@ -1,27 +1,16 @@
 import java.time.LocalDate;
 
-public class Mentoring {
+public class Mentoring extends Content{
     private String title;
     private String description;
     private LocalDate date;
 
+    @Override
+    public double calculateXP() {
+        return standardXP + 20d;
+    }
+
     public Mentoring() {
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public LocalDate getDate() {
@@ -35,8 +24,8 @@ public class Mentoring {
     @Override
     public String toString() {
         return "Mentoring{" +
-                "title='" + title + '\'' +
-                ", description='" + description + '\'' +
+                "title='" + getTitle() + '\'' +
+                ", description='" + getDescription() + '\'' +
                 ", date=" + date +
                 '}';
     }
