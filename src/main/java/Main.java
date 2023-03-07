@@ -19,8 +19,40 @@ public class Main {
         mentoringOne.setDate(LocalDate.of(2023,3,19));
 
 
-        System.out.println(courseOne);
+        /*System.out.println(courseOne);
         System.out.println(courseTwo);
-        System.out.println(mentoringOne);
+        System.out.println(mentoringOne);*/
+
+        Bootcamp bootcampJavaDio = new Bootcamp();
+        bootcampJavaDio.setName("Java Bootcamp DIO");
+        bootcampJavaDio.setDescription("Lear Java coding with us!");
+        bootcampJavaDio.getContent().add(courseOne);
+        bootcampJavaDio.getContent().add(courseTwo);
+        bootcampJavaDio.getContent().add(mentoringOne);
+
+        Developer developerDenison = new Developer();
+        developerDenison.setName("Denison");
+        developerDenison.subscribeBootcamp(bootcampJavaDio);
+        System.out.println("Subscribed content Denison: " + developerDenison.getSubscribedContent());
+        developerDenison.progress();
+        System.out.println("---------");
+        developerDenison.progress();
+        developerDenison.progress();
+        System.out.println("Subscribed content Denison: " + developerDenison.getSubscribedContent());
+        System.out.println("Completed content Denison: " + developerDenison.getCompletedContent());
+        System.out.println("XP: " + developerDenison.calculateTotalXp());
+
+        Developer developerAmanda = new Developer();
+        developerAmanda.setName("Amanda");
+        developerAmanda.subscribeBootcamp(bootcampJavaDio);
+        System.out.println("Subscribed content Amanda: " + developerAmanda.getSubscribedContent());
+        developerAmanda.progress();
+        System.out.println("---------");
+        System.out.println("Subscribed content Amanda: " + developerAmanda.getSubscribedContent());
+        System.out.println("Completed content Amanda: " + developerAmanda.getCompletedContent());
+        System.out.println("XP: " + developerAmanda.calculateTotalXp());
+
+
+
     }
 }
