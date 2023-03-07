@@ -1,12 +1,9 @@
 public class Course {
     private String title;
     private String description;
-    private Integer duration;
+    private int duration;
 
-    public Course(String title, String description, Integer duration) {
-        this.title = title;
-        this.description = description;
-        this.duration = duration;
+    public Course() {
     }
 
     public String getTitle() {
@@ -25,11 +22,11 @@ public class Course {
         this.description = description;
     }
 
-    public Integer getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(Integer duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 
